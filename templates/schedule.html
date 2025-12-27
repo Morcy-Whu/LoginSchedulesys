@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <title>Weekly Schedule</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_soft.css') }}">
+</head>
+<script src="{{ url_for('static', filename='schedule.js') }}"></script>
+
+<body>
+
+<h1>Weekly Schedule</h1>
+
+<div style="text-align:center; margin-bottom:15px;">
+    <a href="{{ url_for('dashboard') }}">
+        <button type="button">← Back to Dashboard</button>
+    </a>
+</div>
+
+<!-- ================== 新增时间段 ================== -->
+<div style="text-align:center; margin-bottom:20px;">
+<form id="add-slot-form" style="display:inline-block;">
+    <input type="time" name="start" required>
+    <span> - </span>
+    <input type="time" name="end" required>
+    <button type="submit">Add Time Slot</button>
+</form>
+
+</div>
+
+<!-- ================== 课程表 ================== -->
+<table cellpadding="5">
+    <tr>
+        <th>Time</th>
+        {% for day in days %}
+            <th>{{ day }}</th>
+        {% endfor %}
+        <th>Action</th>
+    </tr>
+
+    {% for slot in slots %}
+    <tr>
+        <td><strong>{{ slot.label }}</strong></td>
+
+        {% for day in days %}
+        {% set cell = schedule[day][slot.label] %}
+        <td>
+            <form method="post" action="/toggle">
+                <input type="hidden" name="day" value="{{ day }}">
+                <input type="hidden" name="slot_id" value="{{ cell.slot_id }}">
+
+                <button type="submit"
+                        class="{{ 'booked' if cell.booked else 'available' }}">
+                    {{ 'Booked' if cell.booked else 'Available' }}
+                </button>
+            </form>
+        </td>
+        {% endfor %}
+
+        <!-- 删除时间段 -->
+        <td style="text-align:center;">
+<button class="delete-btn"
+        data-slot-id="{{ slot.id }}"
+        style="background:#ccc;">
+    Delete
+</button>
+
+
+
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>

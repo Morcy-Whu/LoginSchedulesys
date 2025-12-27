@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="container">
+  <h2>Welcome</h2>
+
+  <p>
+    Hi, <strong>{{ username }}</strong> 👋
+  </p>
+
+  <button onclick="window.location.href='/logout'">
+  Logout
+</button>
+<hr style="margin: 24px 0;" />
+  <button onclick="window.location.href='/schedule'">
+  Go to Schedule
+</button>
+
+
+  <hr style="margin: 24px 0;" />
+
+  <button
+    onclick="deleteAccount()"
+    style="background:#e74c3c"
+  >
+    Delete Account
+  </button>
+</div>
+
+<script src="{{ url_for('static', filename='auth.js') }}"></script>
+{% endblock %}

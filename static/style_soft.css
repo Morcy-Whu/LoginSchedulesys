@@ -1,0 +1,178 @@
+/* ================== 全局 ================== */
+body {
+    font-family: "Segoe UI", sans-serif;
+    background-color: #fffaf0;
+    margin: 0;
+    padding: 30px;
+
+    display: grid;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ================== 标题 ================== */
+h1 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* ================== 通用按钮 ================== */
+button {
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+button:hover {
+    opacity: 0.85;
+}
+
+/* ================== 返回 Dashboard 按钮 ================== */
+a button {
+    background-color: #ffe4b5;
+}
+
+/* ================== 新增时间段区域 ================== */
+#add-slot-form {
+    background-color: #fff;
+    padding: 10px 14px;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+}
+
+#add-slot-form input[type="time"] {
+    padding: 4px;
+    font-size: 14px;
+}
+
+#add-slot-form button {
+    margin-left: 8px;
+    background-color: #add8e6;
+}
+
+/* ================== 表格 ================== */
+table {
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: #fff;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px 12px;
+    text-align: center;
+}
+
+th {
+    background-color: #ffe4b5;
+    font-weight: bold;
+}
+
+/* ================== 时间段列 ================== */
+td strong {
+    font-weight: 600;
+}
+
+/* ================== 可预约 / 已预约 ================== */
+button.available {
+    background-color: #c8f7c5;   /* 浅绿色 */
+}
+
+button.booked {
+    background-color: #f7c5c5;   /* 浅红色 */
+}
+
+/* ================== 删除按钮 ================== */
+.delete-btn {
+    background-color: #ddd;
+    color: #333;
+}
+
+.delete-btn:hover {
+    background-color: #e74c3c;
+    color: white;
+}
+/* ================== 手机端适配 ================== */
+@media (max-width: 768px) {
+
+    /* 页面整体 */
+    body {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    /* 标题 */
+    h1 {
+        font-size: 20px;
+        margin-bottom: 12px;
+    }
+
+    /* 通用按钮：更好点 */
+    button {
+        padding: 8px 12px;
+        font-size: 14px;
+        border-radius: 6px;
+    }
+
+    /* 返回按钮 */
+    a button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    /* 新增时间段区域 */
+    #add-slot-form {
+        padding: 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    #add-slot-form input[type="time"] {
+        width: 100%;
+        font-size: 16px;
+        padding: 6px;
+    }
+
+    #add-slot-form button {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    /* 表格容器：允许横向滚动 */
+    table {
+        width: 100%;
+        font-size: 13px;
+        margin: 10px 0;
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    th, td {
+        padding: 8px 6px;
+    }
+
+    /* 表头 */
+    th {
+        font-size: 13px;
+    }
+
+    /* 预约按钮在手机上更醒目 */
+    button.available,
+    button.booked {
+        width: 100%;
+        padding: 8px 0;
+        font-size: 13px;
+    }
+
+    /* 删除按钮 */
+    .delete-btn {
+        width: 100%;
+        padding: 6px 0;
+        font-size: 12px;
+    }
+}
